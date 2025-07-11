@@ -1,177 +1,35 @@
-#include <stdio.h>
+# 🧮 Manipulador de Vetores em C
 
-int main(){
-int numeros[10];
-int repetidos[10];
-int x;
-int resto;
-int reverso=0;
-int soma=0;
-int mediana=0;
-int posicao=0;
-int ordem=0;
-int substituinte;
-int repete= 1 ;
-  
-printf ("digite 10 numeros");
-  for (int i =0; i<10; i++) {
+Este programa em linguagem C permite que o usuário insira **10 números inteiros** e, em seguida, escolha entre diferentes operações matemáticas e manipulações sobre esses valores, por meio de um menu interativo.
 
+## 🚀 Como usar
 
-scanf ("%d", &numeros[i]);
-    }
-printf ("escolha um caso de 0 a 14");
-  scanf ("%d", &x);
+1. Compile o programa:
+- Digite 10 números inteiros conforme solicitado.
+- Escolha um caso de 0 a 14 para realizar uma operação específica.
 
+## 📋 Funcionalidades
 
-
-switch(x) {
-case 0:
-    break;
-case 1:
-   printf ("digite uma posicao");
-    scanf( "%d", &posicao);
-  printf ("digite o numero p substituir");
-  scanf ( "%d", &substituinte);
-  for (int i =0; i<10; i++) {
-    if (i==(posicao-1)) {
-      numeros[i] = substituinte;
-    }
-    
-  }
-    for (int i =0; i<10; i++){
-      printf ("%d", numeros[i]);
-    }
-  break;
-case 2:
-    for (int i=0; i<10; i++) {
-        printf ("%d", numeros[i]);
-    }
-    break;
-case 3:
-  
-   for (int i=9; i>=0; i--){
-     // o ultimo numero é esta na posicao 9
-     printf ("%d", numeros[i]);
-     }
-
-  
-    break;
-
-case 4:
-    for (int i=0; i<10; i++) {
-    soma = soma + numeros[i];
-      }
-  printf("%d", soma);
-    break;
-
-  case 5: 
-  for (int i=0; i<10; i++) {
-    for (int j=i+1; j<10; j++) {
-    if (numeros[i]== numeros[j]) {
-      posicao++;
-    }
-    }
-    }
-    printf ("%d", posicao);
-  break; 
-
-  case 6: 
-  for (int i=0; i<10; i++) {
-  for (int j=i+1; j<10; j++) {
-  if (numeros[i] != numeros[j]) {
-    printf ("%d", numeros[i]);
-  }
-  }
-  }
-break ;
-
-    
-  case 7: 
-    for (int i=0; i<10; i++) {
-      repete=1;
-    for (int j=i+1; j<10; j++) {
-      if (numeros[i]==numeros[j]) {
-        repete++;
-      }
-    }
-      printf ("%d- %d\n", numeros[i], repete);
-    }
-
-  break;
-  case 8:
-  for (int i=0; i<10; i++) {
-    for (int j=i+1; j<10; j++) {
-      if (numeros[i]>numeros[j]) {
-        ordem=numeros[j];
-        numeros[j]=numeros[i];
-        numeros[i]=ordem;
-
-      // valor minimo= num i [0]
-      // valor maximo = num j [9]
-      // valor medio= num [5]
-        
-        }
-    
-      }
-        }
-    printf("minimo-%d\n maximo-%d\n medio-%d", numeros [0], numeros[9], numeros[5]);
-    
-  break;
-case 9:
-    mediana= (numeros[4] + numeros[5])/2;
-    printf("%d",mediana);
-    break;
-
-case 10:
-    for (int i=0; i<10; i++) {
-      for (int j=i+1; j<10; j++) {
-        if (numeros[i]>numeros[j]) {
-          ordem=numeros[i];
-          numeros[i]=numeros[j];
-          numeros[j]=ordem;
-                }
-              }
-            }
-      for (int i=0; i<10; i++){
-        printf ("%d", numeros[i]);
-            }
-              break;
-  case 11:
-  for(int i=0; i<10; i++){
-    for (int j=i+1; j<10; j++) {
-      if (numeros[i]<numeros[j]) {
-        ordem=numeros[j];
-        numeros[j]=numeros[i];
-        numeros[i]=ordem;
-      }
-    }
-  }
-  for (int i=0; i<10; i++) {
-    printf ("%d\n", numeros[i]);
-  }
-
- case 12: 
- for (int i = 0; i < 10; i++) {
-   if (numeros[i] % 2 == 0 && numeros[i] != -1) {
-       printf("PARES %d\n", numeros[i]);
-       numeros[i] = -1; // p nao repetir
-   }
- }
- for (int i = 0; i < 10; i++) {
-   if (numeros[i] % 2 != 0 && numeros[i] != -1) {
-       printf("IMPARES %d\n", numeros[i]);
-       numeros[i] = -1; // p n repetir
-   }
- }
-   break;
-   default:
-   printf("invalido\n");
-       }
-
-       return 0;
-   }
+| Caso         | Operação                                                                 |
+|--------------|--------------------------------------------------------------------------|
+| `0`          | Finaliza o programa (não faz nada).                                      |
+| `1`          | Substitui um número em uma posição específica.                           |
+| `2`          | Mostra os números na ordem original.                                     |
+| `3`          | Mostra os números na ordem reversa.                                      |
+| `4`          | Soma todos os valores do vetor.                                          |
+| `5`          | Conta quantos números se repetem.                                        |
+| `6`          | Imprime os números diferentes (⚠️ implementação incorreta).              |
+| `7`          | Exibe quantas vezes cada número aparece.                                 |
+| `8`          | Ordena o vetor em ordem crescente e mostra mínimo, máximo e valor médio. |
+| `9`          | Calcula e exibe a mediana (posição 4 + 5 / 2).                           |
+| `10`         | Ordena o vetor em ordem crescente.                                       |
+| `11`         | Ordena o vetor em ordem decrescente.                                     |
+| `12`         | Exibe separadamente os números pares e ímpares (sem repetições).         |
+| Outro número | Mostra “inválido”.                                                       |
 
 
-
-
-
+📌 Observações
+- O vetor é fixo com 10 elementos.
+- As posições no código vão de 0 a 9, mas o usuário insere posições de 1 a 10.
+- O programa não verifica erros de entrada (por exemplo, posição inválida).
+- O caso 6 contém uma lógica incorreta: imprime muitos valores repetidos. Pode ser corrigido com verificações de duplicidade.
